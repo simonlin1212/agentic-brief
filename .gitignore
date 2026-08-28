@@ -1,0 +1,22 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+*.log
+credentials.json
+service-account*.json
+
+# Local agent instructions and private development notes. The public README
+# carries the reproducible project documentation instead.
+.claude/
+CLAUDE.md
+DEV_LOG.md
+NEXT.md
+
+# Test and coverage artifacts.
+.pytest_cache/
+.coverage
+htmlcov/
