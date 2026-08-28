@@ -1,0 +1,45 @@
+[project]
+name = "agentic-brief"
+version = "0.1.0"
+description = "Autonomous multi-source morning market briefing agent."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "feedparser==6.0.12",
+    "google-adk==2.7.1",
+    "google-genai==2.20.0",
+    "httpx==0.28.1",
+    "python-dotenv==1.2.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.0.2",
+    "pytest-cov==7.0.0",
+    "ruff==0.14.14",
+]
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["agentic_brief"]
+
+[tool.coverage.report]
+show_missing = true
+skip_empty = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

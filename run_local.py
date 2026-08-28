@@ -2,6 +2,7 @@
 
 This is the development entry point. Cloud Run uses app.py instead.
 """
+
 import asyncio
 import sys
 from pathlib import Path
@@ -31,9 +32,7 @@ async def main() -> None:
     async for event in runner.run_async(
         user_id="simon",
         session_id=session.id,
-        new_message=types.Content(
-            role="user", parts=[types.Part(text=TRIGGER)]
-        ),
+        new_message=types.Content(role="user", parts=[types.Part(text=TRIGGER)]),
     ):
         if event.author and event.content and event.content.parts:
             text = "".join(p.text or "" for p in event.content.parts).strip()

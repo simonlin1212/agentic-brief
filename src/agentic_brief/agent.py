@@ -10,12 +10,13 @@ property this agent is built on.
 On the free Gemini tier the scouts run one after another with pacing between
 calls. With billing enabled (AGENTIC_BRIEF_FREE_TIER=0) they run concurrently.
 """
+
 from google.adk.agents import LlmAgent, ParallelAgent, SequentialAgent
 
 from agentic_brief import prompt
 from agentic_brief.config import MODEL_DEEP, MODEL_FAST
 from agentic_brief.throttle import FREE_TIER, throttle_model_calls
-from agentic_brief.tools.stubs import (
+from agentic_brief.tools.sources import (
     analyze_video,
     fetch_headlines,
     search_finance_videos,

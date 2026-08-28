@@ -8,6 +8,7 @@ Vertex AI has no such ceiling, so throttling switches itself off whenever
 GOOGLE_GENAI_USE_VERTEXAI is set. Override either way with
 AGENTIC_BRIEF_FREE_TIER=1/0.
 """
+
 import asyncio
 import os
 import time
