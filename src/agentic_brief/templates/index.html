@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An autonomous, cross-source morning market briefing built with Google ADK and Gemini 3.5.">
+  <title>Agentic Brief — Morning market intelligence</title>
+  <style>
+    :root {
+      --ink: #101510;
+      --paper: #f1efdf;
+      --signal: #d7ff44;
+      --muted: #697067;
+      --line: rgba(16, 21, 16, .18);
+      --panel: rgba(255, 255, 248, .68);
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--ink); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, transparent 49.8%, rgba(16,21,16,.045) 50%, transparent 50.2%),
+        radial-gradient(circle at 78% 5%, rgba(215,255,68,.42), transparent 24rem),
+        var(--paper);
+      font-family: "Avenir Next", Avenir, Helvetica, sans-serif;
+    }
+    .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 0 20px; border-bottom: 1px solid var(--ink);
+    }
+    .brand { display: flex; gap: 12px; align-items: center; font-weight: 700; letter-spacing: -.02em; }
+    .mark { width: 16px; height: 16px; background: var(--signal); border: 4px solid var(--ink); transform: rotate(45deg); }
+    .status { display: flex; gap: 8px; align-items: center; font: 600 11px/1 monospace; text-transform: uppercase; letter-spacing: .1em; }
+    .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #4d9e38; box-shadow: 0 0 0 4px rgba(77,158,56,.14); }
+    .hero { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 64px; padding: 68px 0 54px; }
+    .eyebrow { margin: 0 0 18px; font: 700 12px/1.2 monospace; letter-spacing: .13em; text-transform: uppercase; }
+    h1 { margin: 0; max-width: 760px; font: 500 clamp(52px, 7.5vw, 104px)/.86 Georgia, serif; letter-spacing: -.075em; }
+    h1 em { font-style: italic; text-decoration: underline; text-decoration-color: var(--signal); text-decoration-thickness: .16em; text-underline-offset: -.06em; }
+    .hero aside { align-self: end; border-top: 1px solid var(--ink); padding-top: 16px; color: var(--muted); font-size: 14px; line-height: 1.55; }
+    .hero aside strong { color: var(--ink); }
+    .tape { overflow: hidden; border-block: 1px solid var(--ink); background: var(--signal); }
+    .tape div { width: max-content; padding: 10px 0; font: 700 12px/1 monospace; letter-spacing: .08em; text-transform: uppercase; animation: drift 26s linear infinite; }
+    @keyframes drift { to { transform: translateX(-50%); } }
+    main { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 56px; padding: 64px 0 90px; }
+    .meta { font: 12px/1.65 monospace; text-transform: uppercase; letter-spacing: .05em; }
+    .meta span { display: block; color: var(--muted); margin-bottom: 4px; }
+    .meta strong { display: block; margin-bottom: 22px; overflow-wrap: anywhere; }
+    .brief {
+      position: relative; padding: clamp(26px, 5vw, 64px); border: 1px solid var(--ink);
+      background: var(--panel); box-shadow: 12px 12px 0 var(--ink);
+    }
+    .brief::before { content: "FIELD NOTE / 01"; position: absolute; top: 12px; right: 16px; color: var(--muted); font: 10px/1 monospace; letter-spacing: .1em; }
+    .brief .content { padding-top: 16px; overflow-wrap: anywhere; font: 17px/1.72 Georgia, serif; }
+    .content h3 { margin: 2.2em 0 .8em; font: 700 14px/1.2 monospace; letter-spacing: .1em; text-transform: uppercase; }
+    .content h3:first-child { margin-top: 0; }
+    .content p { margin: 0 0 1.15em; }
+    .content ol, .content ul { margin: 0 0 1.4em; padding-left: 1.35em; }
+    .content li { margin-bottom: .85em; padding-left: .35em; }
+    .content li::marker { font: 700 12px/1 monospace; }
+    .content strong { font-weight: 700; }
+    .empty { min-height: 340px; display: grid; place-items: center; text-align: center; }
+    .empty p { max-width: 470px; margin: 0; color: var(--muted); font: 20px/1.5 Georgia, serif; }
+    footer { display: flex; justify-content: space-between; gap: 20px; padding: 22px 0 34px; border-top: 1px solid var(--ink); color: var(--muted); font: 11px/1.5 monospace; text-transform: uppercase; }
+    @media (prefers-reduced-motion: reduce) { .tape div { animation: none; } }
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 24px, 1180px); }
+      .hero { grid-template-columns: 1fr; gap: 34px; padding: 46px 0 38px; }
+      h1 { font-size: clamp(48px, 16vw, 78px); }
+      main { grid-template-columns: 1fr; gap: 24px; padding: 42px 0 64px; }
+      .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+      .meta strong { margin-bottom: 4px; }
+      .brief { box-shadow: 7px 7px 0 var(--ink); }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand"><span class="mark" aria-hidden="true"></span>Agentic Brief</div>
+      <div class="status">Autonomous pipeline</div>
+    </header>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Cross-source market intelligence / Before the open</p>
+        <h1>The morning signal, <em>without</em> the noise.</h1>
+      </div>
+      <aside><strong>Not a chatbot.</strong> Two isolated scouts independently read financial news and video. An editor agent then ranks agreement, exposes contradictions, and marks thin evidence.</aside>
+    </section>
+  </div>
+  <div class="tape" aria-hidden="true"><div>GOOGLE ADK · GEMINI 3.5 · VERTEX AI · CLOUD RUN · FIRESTORE · NEWS SCOUT · VIDEO SCOUT · CONTRADICTION ENGINE · GOOGLE ADK · GEMINI 3.5 · VERTEX AI · CLOUD RUN · FIRESTORE · NEWS SCOUT · VIDEO SCOUT · CONTRADICTION ENGINE ·&nbsp;</div></div>
+  <div class="shell">
+    <main>
+      {% if brief %}
+      <aside class="meta">
+        <div><span>Generated</span><strong>{{ brief.generated_at }}</strong></div>
+        <div><span>Run ID</span><strong>{{ brief.run_id }}</strong></div>
+        <div><span>Sources</span><strong>News + YouTube</strong></div>
+        <div><span>Mode</span><strong>Unattended</strong></div>
+      </aside>
+      <article class="brief" aria-label="Latest autonomous market briefing"><div class="content">{{ brief_html }}</div></article>
+      {% else %}
+      <aside class="meta"><div><span>Status</span><strong>Awaiting data</strong></div></aside>
+      <article class="brief empty"><p>The system is ready. The first autonomous run will publish its cross-checked briefing here.</p></article>
+      {% endif %}
+    </main>
+    <footer><span>Built for Google All Things Agentic Hackathon</span><span>Autonomous action over chat</span></footer>
+  </div>
+</body>
+</html>

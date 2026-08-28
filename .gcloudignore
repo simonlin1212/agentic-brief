@@ -1,0 +1,17 @@
+.gcloudignore
+.git
+.gitignore
+.claude
+.env
+.env.*
+!.env.example
+.venv
+__pycache__
+*.pyc
+*.egg-info
+.coverage
+.pytest_cache
+.ruff_cache
+CLAUDE.md
+DEV_LOG.md
+NEXT.md
