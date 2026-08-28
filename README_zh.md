@@ -21,6 +21,8 @@
 
 **公开简报：** [agentic-brief-web-qjv2kumm3q-as.a.run.app](https://agentic-brief-web-qjv2kumm3q-as.a.run.app/)
 
+**演示视频：** [在 YouTube 观看 3 分 45 秒完整演示](https://youtu.be/2GYxLUbTnRQ)
+
 ![Agentic Brief 看板](./assets/dashboard.png)
 
 它不是聊天机器人。Cloud Scheduler 每天新加坡时间 07:00 主动触发私有 Cloud Run 运行器；两个互相看不到对方结果的 scout 分别读取新闻和财经视频，editor 再做交叉验证。最终结果写入 Firestore，由另一个只读的公开 Cloud Run 网页展示。
@@ -46,7 +48,7 @@ Scheduler 使用 OIDC 身份调用私有运行器；匿名请求会被 Cloud Run
 - Firestore 成功保存真实新闻、视频分析和 4,000+ 字符简报，无 stub URL。
 - 公开网页与 `/api/latest` 返回 200。
 - 桌面端与 390px 手机端真实浏览器测试通过，无横向溢出。
-- 首次云端发布时整仓 40+ 项测试通过，总覆盖率 87%。
+- 最终云端版本 48 项测试通过，总覆盖率 87%。
 
 ## 本地运行
 

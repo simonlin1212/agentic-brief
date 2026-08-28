@@ -29,6 +29,8 @@
 
 **Public briefing:** [agentic-brief-web-qjv2kumm3q-as.a.run.app](https://agentic-brief-web-qjv2kumm3q-as.a.run.app/)
 
+**Demo video:** [Watch the 3:45 walkthrough on YouTube](https://youtu.be/2GYxLUbTnRQ)
+
 ![Agentic Brief dashboard](./assets/dashboard.png)
 
 Agentic Brief is not a chat interface. Every morning at 07:00 Singapore time, Cloud Scheduler invokes a private Cloud Run service. Two isolated research agents independently read financial news and finance video. A third agent compares their reports, ranks sector signals, preserves contradictions, and explicitly labels claims supported by only one source. The result is stored in Firestore and published through a separate read-only Cloud Run service.
@@ -60,7 +62,7 @@ The public and private HTTP surfaces are deliberately separate. Cloud Run IAM re
 - Firestore stored `news_findings`, `video_findings`, and a 4,000+ character `daily_brief` without stub URLs.
 - Public `GET /` and `GET /api/latest` returned HTTP 200.
 - Desktop and 390 px mobile browser assertions passed with no horizontal overflow.
-- Test suite: 40+ tests, 87% package coverage at the first cloud release.
+- Test suite: 48 tests, 87% package coverage at the final cloud release.
 
 ## Run locally
 

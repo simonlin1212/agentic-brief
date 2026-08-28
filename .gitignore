@@ -21,3 +21,6 @@ NEXT.md
 .coverage
 htmlcov/
 *.egg-info/
+
+# Local demo-video sources, renders, and QA frames.
+deliverables/

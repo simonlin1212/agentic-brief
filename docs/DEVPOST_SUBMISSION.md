@@ -58,7 +58,7 @@ Finally, the first cloud Scheduler test was accidentally triggered more than onc
 - Gemini reads the real finance video instead of summarizing metadata.
 - The live run surfaced both agreement and a concrete contradiction around software and semiconductor guidance.
 - Anonymous runner calls return HTTP 403, while the public viewer remains directly accessible.
-- The first cloud release passed 40+ tests with 87% package coverage and desktop/mobile browser QA.
+- The final cloud release passed 48 tests with 87% package coverage and desktop/mobile browser QA.
 
 ## What we learned
 
@@ -74,4 +74,4 @@ Google ADK, Gemini 3.5 Flash, Vertex AI, Cloud Run, Cloud Scheduler, Cloud Fires
 
 ## Demo video
 
-TODO: paste final video URL here.
+https://youtu.be/2GYxLUbTnRQ
