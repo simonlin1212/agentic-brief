@@ -85,14 +85,6 @@ gcloud auth application-default login
 
 Agentic Brief 是实验性研究工具，输出可能不完整或错误，不构成任何建议、推荐或交易指令。
 
-## 赞赏
-
-如果这个项目有帮助，可以请作者喝杯咖啡。
-
-<p align="center">
-  <a href="https://buymeacoffee.com/simonlin1212"><img src="./assets/bmc-qr.png" width="180" alt="Buy Me a Coffee"></a>
-</p>
-
 ## License
 
 MIT，详见 [LICENSE](LICENSE)。

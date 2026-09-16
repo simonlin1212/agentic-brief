@@ -220,14 +220,6 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 Agentic Brief is an experimental research tool. Its output may be incomplete or wrong and must not be treated as financial advice, a recommendation, or an instruction to transact.
 
-## Support
-
-If this project helped, a coffee supports continued open-source work.
-
-<p align="center">
-  <a href="https://buymeacoffee.com/simonlin1212"><img src="./assets/bmc-qr.png" width="180" alt="Buy Me a Coffee"></a>
-</p>
-
 ## License
 
 MIT. See [LICENSE](LICENSE).
