@@ -14,6 +14,15 @@
   <img src="https://img.shields.io/badge/Gemini-3.5_Flash-d7ff44" alt="Gemini 3.5 Flash">
 </p>
 
+---
+
+**Open to Work · Shenzhen / Hong Kong / Remote**
+
+I'm Simon, focused on building AI agents and practical tools, and I'm looking for opportunities in Shenzhen, Hong Kong, or remotely.  
+Get in touch: [simonlin0423@gmail.com](mailto:simonlin0423@gmail.com).
+
+---
+
 <p align="center">
   <a href="#live-demo">Live demo</a> ·
   <a href="#how-it-works">How it works</a> ·
